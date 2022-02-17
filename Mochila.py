@@ -1,6 +1,3 @@
-from weakref import finalize
-
-
 class Elemento:
   def __init__(self, peso, beneficio):
       self.peso = peso
@@ -62,7 +59,7 @@ def llenarMochila(mochila_base: Mochila, elementos, mochila_optima:Mochila, esta
     for i in range(len(elementos)):
       if not mochila_base.existeElemento(elementos[i]):
         #Si el elemento no esta en la mochila
-        if mochila_base.pesoMaximo >= mochila_base.peso + elementos[i].peso:
+        if mochila_base.pesoMaximo > mochila_base.peso + elementos[i].peso:
           #si el peso de la mochila + el peso del elemento a ingresar
           #es menor que el peso maximo de la mochila
           mochila_base.anadirElemento(elementos[i])
